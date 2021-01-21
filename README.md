@@ -1,2 +1,2 @@
 # GoBang
-A stupid gobang ai...
+A stupid gobang ai
