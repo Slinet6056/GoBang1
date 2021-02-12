@@ -30,10 +30,48 @@ void undo(int x) {
             pos = record.top();
             setfillcolor(BKCOLOR);
             solidcircle(50 * pos.y - 25, 50 * pos.x - 25, 24);
-            setlinestyle(PS_SOLID, 1);
             setlinecolor(BLACK);
-            line(50 * pos.y - 49, 50 * pos.x - 25, 50 * pos.y - 1, 50 * pos.x - 25);
-            line(50 * pos.y - 25, 50 * pos.x - 49, 50 * pos.y - 25, 50 * pos.x - 1);
+            if (pos.x > 1 && pos.x < N && pos.y > 1 && pos.y < N) {
+                setlinestyle(PS_SOLID, 1);
+                line(50 * pos.y - 50, 50 * pos.x - 25, 50 * pos.y, 50 * pos.x - 25);
+                line(50 * pos.y - 25, 50 * pos.x - 50, 50 * pos.y - 25, 50 * pos.x);
+            } else if (pos.x == 1 && pos.y == 1) {
+                setlinestyle(PS_SOLID, 3);
+                line(50 * pos.y - 25, 50 * pos.x - 25, 50 * pos.y, 50 * pos.x - 25);
+                line(50 * pos.y - 25, 50 * pos.x - 25, 50 * pos.y - 25, 50 * pos.x);
+            } else if (pos.x == 1 && pos.y == N) {
+                setlinestyle(PS_SOLID, 3);
+                line(50 * pos.y - 50, 50 * pos.x - 25, 50 * pos.y - 25, 50 * pos.x - 25);
+                line(50 * pos.y - 25, 50 * pos.x - 25, 50 * pos.y - 25, 50 * pos.x);
+            } else if (pos.x == N && pos.y == 1) {
+                setlinestyle(PS_SOLID, 3);
+                line(50 * pos.y - 25, 50 * pos.x - 25, 50 * pos.y, 50 * pos.x - 25);
+                line(50 * pos.y - 25, 50 * pos.x - 50, 50 * pos.y - 25, 50 * pos.x - 25);
+            } else if (pos.x == N && pos.y == N) {
+                setlinestyle(PS_SOLID, 3);
+                line(50 * pos.y - 50, 50 * pos.x - 25, 50 * pos.y - 25, 50 * pos.x - 25);
+                line(50 * pos.y - 25, 50 * pos.x - 50, 50 * pos.y - 25, 50 * pos.x - 25);
+            } else if (pos.x == 1) {
+                setlinestyle(PS_SOLID, 3);
+                line(50 * pos.y - 50, 50 * pos.x - 25, 50 * pos.y, 50 * pos.x - 25);
+                setlinestyle(PS_SOLID, 1);
+                line(50 * pos.y - 25, 50 * pos.x - 25, 50 * pos.y - 25, 50 * pos.x);
+            } else if (pos.x == N) {
+                setlinestyle(PS_SOLID, 3);
+                line(50 * pos.y - 50, 50 * pos.x - 25, 50 * pos.y, 50 * pos.x - 25);
+                setlinestyle(PS_SOLID, 1);
+                line(50 * pos.y - 25, 50 * pos.x - 50, 50 * pos.y - 25, 50 * pos.x - 25);
+            } else if (pos.y == 1) {
+                setlinestyle(PS_SOLID, 1);
+                line(50 * pos.y - 25, 50 * pos.x - 25, 50 * pos.y, 50 * pos.x - 25);
+                setlinestyle(PS_SOLID, 3);
+                line(50 * pos.y - 25, 50 * pos.x - 50, 50 * pos.y - 25, 50 * pos.x);
+            } else if (pos.y == N) {
+                setlinestyle(PS_SOLID, 1);
+                line(50 * pos.y - 50, 50 * pos.x - 25, 50 * pos.y - 25, 50 * pos.x - 25);
+                setlinestyle(PS_SOLID, 3);
+                line(50 * pos.y - 25, 50 * pos.x - 50, 50 * pos.y - 25, 50 * pos.x);
+            }
             if ((pos.x == 4 && pos.y == 4) || (pos.x == 4 && pos.y == 12) || (pos.x == 8 && pos.y == 8) || (pos.x == 12 && pos.y == 4) || (pos.x == 12 && pos.y == 12)) {
                 setfillcolor(BLACK);
                 solidcircle(50 * pos.y - 25, 50 * pos.x - 25, 3);
@@ -118,13 +156,14 @@ int placeChess_player(int turn) {
                 if (m.x > 760 && m.x < 930 && m.y > 650 && m.y < 710) { //退出
                     exit(0);
                 } else if (m.x > 760 && m.x < 930 && m.y > 490 && m.y < 550) { //悔棋
-                    if (firstPlayer == 1 && secondPlayer == 1) undo(1);
-                    else {
+                    if (firstPlayer == 1 && secondPlayer == 1) {
+                        undo(1);
+                        turn = 3 - turn;
+                    } else
                         undo(2);
-                    }
                 } else if (m.x > 760 && m.x < 930 && m.y > 420 && m.y < 480) { //重新开始
                     return 1;
-                } else if (m.x > 760 && m.x < 930 && m.y > 560 && m.y < 620) {
+                } else if (m.x > 760 && m.x < 930 && m.y > 560 && m.y < 620) { //提示
                     placeChess_AI(turn);
                     return 0;
                 }
