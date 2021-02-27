@@ -1,0 +1,6 @@
+/.idea/
+/cmake-build-debug/
+/lib/
+/include/
+/CMakeLists.txt
+/.gitignore

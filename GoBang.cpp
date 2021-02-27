@@ -1,18 +1,3 @@
-/*
- *  ¨€¨€¨€¨€¨€¨[ ¨€¨€¨[   ¨€¨€¨[¨€¨€¨€¨€¨€¨€¨€¨€¨[¨€¨€¨[  ¨€¨€¨[ ¨€¨€¨€¨€¨€¨€¨[ ¨€¨€¨€¨€¨€¨€¨[
- * ¨€¨€¨X¨T¨T¨€¨€¨[¨€¨€¨U   ¨€¨€¨U¨^¨T¨T¨€¨€¨X¨T¨T¨a¨€¨€¨U  ¨€¨€¨U¨€¨€¨X¨T¨T¨T¨€¨€¨[¨€¨€¨X¨T¨T¨€¨€¨[    ¨€¨€¨[
- * ¨€¨€¨€¨€¨€¨€¨€¨U¨€¨€¨U   ¨€¨€¨U   ¨€¨€¨U   ¨€¨€¨€¨€¨€¨€¨€¨U¨€¨€¨U   ¨€¨€¨U¨€¨€¨€¨€¨€¨€¨X¨a    ¨^¨T¨a
- * ¨€¨€¨X¨T¨T¨€¨€¨U¨€¨€¨U   ¨€¨€¨U   ¨€¨€¨U   ¨€¨€¨X¨T¨T¨€¨€¨U¨€¨€¨U   ¨€¨€¨U¨€¨€¨X¨T¨T¨€¨€¨[    ¨€¨€¨[
- * ¨€¨€¨U  ¨€¨€¨U¨^¨€¨€¨€¨€¨€¨€¨X¨a   ¨€¨€¨U   ¨€¨€¨U  ¨€¨€¨U¨^¨€¨€¨€¨€¨€¨€¨X¨a¨€¨€¨U  ¨€¨€¨U    ¨^¨T¨a
- * ¨^¨T¨a  ¨^¨T¨a ¨^¨T¨T¨T¨T¨T¨a    ¨^¨T¨a   ¨^¨T¨a  ¨^¨T¨a ¨^¨T¨T¨T¨T¨T¨a ¨^¨T¨a  ¨^¨T¨a
- *
- * ¨€¨€¨€¨€¨€¨€¨€¨[¨€¨€¨[     ¨€¨€¨[¨€¨€¨€¨€¨€¨€¨€¨[¨€¨€¨€¨[   ¨€¨€¨[¨€¨€¨€¨€¨€¨€¨€¨€¨[ ¨€¨€¨€¨€¨€¨€¨[  ¨€¨€¨€¨€¨€¨€¨[ ¨€¨€¨€¨€¨€¨€¨€¨[ ¨€¨€¨€¨€¨€¨€¨[
- * ¨€¨€¨X¨T¨T¨T¨T¨a¨€¨€¨U     ¨€¨€¨U¨€¨€¨X¨T¨T¨T¨T¨a¨€¨€¨€¨€¨[  ¨€¨€¨U¨^¨T¨T¨€¨€¨X¨T¨T¨a¨€¨€¨X¨T¨T¨T¨T¨a ¨€¨€¨X¨T¨€¨€¨€¨€¨[¨€¨€¨X¨T¨T¨T¨T¨a¨€¨€¨X¨T¨T¨T¨T¨a
- * ¨€¨€¨€¨€¨€¨€¨€¨[¨€¨€¨U     ¨€¨€¨U¨€¨€¨€¨€¨€¨[  ¨€¨€¨X¨€¨€¨[ ¨€¨€¨U   ¨€¨€¨U   ¨€¨€¨€¨€¨€¨€¨€¨[ ¨€¨€¨U¨€¨€¨X¨€¨€¨U¨€¨€¨€¨€¨€¨€¨€¨[¨€¨€¨€¨€¨€¨€¨€¨[
- * ¨^¨T¨T¨T¨T¨€¨€¨U¨€¨€¨U     ¨€¨€¨U¨€¨€¨X¨T¨T¨a  ¨€¨€¨U¨^¨€¨€¨[¨€¨€¨U   ¨€¨€¨U   ¨€¨€¨X¨T¨T¨T¨€¨€¨[¨€¨€¨€¨€¨X¨a¨€¨€¨U¨^¨T¨T¨T¨T¨€¨€¨U¨€¨€¨X¨T¨T¨T¨€¨€¨[
- * ¨€¨€¨€¨€¨€¨€¨€¨U¨€¨€¨€¨€¨€¨€¨€¨[¨€¨€¨U¨€¨€¨€¨€¨€¨€¨€¨[¨€¨€¨U ¨^¨€¨€¨€¨€¨U   ¨€¨€¨U   ¨^¨€¨€¨€¨€¨€¨€¨X¨a¨^¨€¨€¨€¨€¨€¨€¨X¨a¨€¨€¨€¨€¨€¨€¨€¨U¨^¨€¨€¨€¨€¨€¨€¨X¨a
- * ¨^¨T¨T¨T¨T¨T¨T¨a¨^¨T¨T¨T¨T¨T¨T¨a¨^¨T¨a¨^¨T¨T¨T¨T¨T¨T¨a¨^¨T¨a  ¨^¨T¨T¨T¨a   ¨^¨T¨a    ¨^¨T¨T¨T¨T¨T¨a  ¨^¨T¨T¨T¨T¨T¨a ¨^¨T¨T¨T¨T¨T¨T¨a ¨^¨T¨T¨T¨T¨T¨a
- */
 #include <cstdlib>
 #include <stack>
 #include <graphics.h>
