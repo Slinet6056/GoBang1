@@ -1,5 +1,5 @@
 # 五子棋
-使用C++和EasyX图形库编写  
+使用 C++ 和 EasyX 图形库编写  
 主函数在`GoBang.cpp`中  
 程序文件使用 GBK 编码  
 `GoBang.exe`可能有些电脑会打不开，我阿巴阿巴阿巴
